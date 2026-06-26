@@ -1,55 +1,49 @@
 # GitHub org migration — goldspireventures
 
-Move active repos under **https://github.com/goldspireventures**.
+**Status:** Mostly complete (2026-06-26). Active org: **goldspire-global**.
 
-## 1. Create the org
+## Done
 
-1. GitHub → **Settings** → **Organizations** → **New organization**
-2. Name: `goldspireventures`
-3. Plan: Free is fine until you need private collaborators at scale
+| Repo | URL |
+|------|-----|
+| corporate | https://github.com/goldspire-global/corporate |
+| livia | https://github.com/goldspire-global/livia |
+| veil | https://github.com/goldspire-global/veil |
+| launch-stack | https://github.com/goldspire-global/launch-stack |
+| triforge | https://github.com/goldspire-global/triforge |
+| valrolly-events | https://github.com/goldspire-global/valrolly-events |
+| clearboarder | https://github.com/goldspire-global/clearboarder |
+| company | https://github.com/goldspire-global/company |
+| simi, mulah, atlas, untapped | already on org |
 
-## 2. Push order (highest leverage first)
+**Deploy:** https://goldspireventures.com → Vercel project `livia-hq/goldspire-corporate` (standalone repo).
 
-| Priority | Local path | Target repo |
-|----------|------------|-------------|
-| 1 | `goldspire-corporate` | `corporate` |
-| 2 | `goldspire-launch-stack` | `launch-stack` |
-| 3 | `apps/Livia` | `livia` |
-| 4 | `secure-text` | `veil` |
-| 5 | `the3companies` | `triforge` |
-| 6 | `SIMI` | `simi` |
-| 7 | `Valrolly-Events` | `valrolly-events` |
-| 8 | Others per `REPO-REGISTRY.yaml` | … |
+## One manual step: rename org
 
-### Per-repo commands (example: corporate)
+`goldspireventures` GitHub org could not be created via CLI (requires browser org signup). Your existing **goldspire-global** org holds all repos.
 
-```powershell
-cd "c:\Users\eamon\Personal Projects\goldspire-corporate"
-git init
-git add .
-git commit -m "Initial commit: Goldspire Ventures corporate site"
-gh repo create goldspireventures/corporate --private --source=. --remote=origin --push
+To match the brand slug:
+
+1. GitHub → **goldspire-global** → Settings → **Organization profile**
+2. **Rename organization** → `goldspireventures` (if the name is available)
+3. GitHub auto-redirects old URLs; update `REPO-REGISTRY.yaml` `org:` field after rename
+
+## Local remotes (already updated)
+
+```text
+goldspire-corporate   → goldspire-global/corporate
+goldspire-launch-stack → goldspire-global/launch-stack
+apps/Livia            → goldspire-global/livia
+secure-text           → goldspire-global/veil
+ClearBoarder          → goldspire-global/clearboarder
+the3companies         → goldspire-global/triforge
+Valrolly-Events       → goldspire-global/valrolly-events
+docs                  → goldspire-global/company
 ```
 
-Repeat with `--private` or `--public` per repo sensitivity. Corporate + marketing sites are often public; `launch-stack` and `livia` usually private.
+## Remaining
 
-## 3. Update local remotes (existing repos)
-
-```powershell
-git remote set-url origin https://github.com/goldspireventures/REPO_NAME.git
-git push -u origin main
-```
-
-## 4. Post-migration cleanup
-
-- [ ] Point Vercel `goldspireventures.com` at `goldspireventures/corporate`
-- [ ] Remove `apps/Livia/artifacts/goldspire-corporate` after deploy cutover
-- [ ] Update Cursor workspace files with new clone paths
-- [ ] Update Console Lab venture rows with `repoUrl` → new GitHub URLs
-- [ ] Add org README linking to goldspireventures.com
-
-## 5. Naming conventions
-
-- Repo names: lowercase, hyphenated (`launch-stack`, `valrolly-events`)
-- Product code names can differ (`secure-text` → repo `veil`)
-- One repo per deployable product or factory; no Personal Projects mega-repo
+- [ ] Org rename `goldspire-global` → `goldspireventures` (optional, manual)
+- [ ] Delete `apps/Livia/artifacts/goldspire-corporate` (deprecated copy)
+- [ ] Create `utub` repo when the project has code
+- [ ] Push any outstanding local commits on livia / veil / simi
