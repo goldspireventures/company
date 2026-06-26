@@ -1,0 +1,93 @@
+# Goldspire Ventures — repository registry
+# Canonical map: local workspace path → GitHub org repo → product slug
+# GitHub org: https://github.com/goldspireventures
+# Last updated: 2026-06-26
+
+org: goldspireventures
+legal_entity: Goldspire Ventures Ltd
+jurisdiction: United Kingdom
+corporate_domain: goldspireventures.com
+
+repos:
+  - github: corporate
+    local_path: goldspire-corporate
+  - github: livia
+    local_path: apps/Livia
+    product_slug: livia
+    status: live
+    primary_domain: livia-hq.com
+
+  - github: veil
+    local_path: secure-text
+    product_slug: veil
+    status: live
+    primary_domain: join-veil.goldspireventures.com
+    notes: Chrome extension + veil-api worker
+
+  - github: launch-stack
+    local_path: goldspire-launch-stack
+    product_slug: goldspire-studio
+    division: Goldspire Studio
+    status: live
+    primary_domain: goldspire.dev
+
+  - github: triforge
+    local_path: the3companies
+    product_slug: triforge
+    status: building
+    notes: Groundline, Vouchline, Stillpath
+
+  - github: simi
+    local_path: SIMI
+    product_slug: simi
+    status: building
+
+  - github: valrolly-events
+    local_path: Valrolly-Events
+    product_slug: valrolly
+    status: building
+    notes: Target convergence into Livia events vertical
+
+  - github: clearboarder
+    local_path: ClearBoarder
+    product_slug: clearboarder
+    status: building
+
+  - github: utub
+    local_path: utub
+    product_slug: utub
+    status: building
+
+  # Portfolio companies without a dedicated repo yet
+  - github: mulah
+    local_path: null
+    product_slug: mulah
+    status: building
+
+  - github: trustbase
+    local_path: null
+    product_slug: trustbase
+    status: building
+
+  - github: move-ezflow
+    local_path: null
+    product_slug: move-ezflow
+    status: building
+
+  - github: japa
+    local_path: null
+    product_slug: japa
+    status: building
+
+  # Org meta / docs (optional future repo)
+  - github: company
+    local_path: docs
+    notes: BRAND-HIERARCHY.md, REPO-REGISTRY.yaml — may become standalone meta repo
+
+migration:
+  status: planned
+  steps:
+    - Create github.com/goldspireventures org (if not exists)
+    - Push corporate, livia, veil, launch-stack first
+    - Rename remotes on local clones; update Cursor workspace paths
+    - Archive or delete nested Livia artifacts/goldspire-corporate after Vercel cutover
