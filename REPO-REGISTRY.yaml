@@ -2,35 +2,34 @@
 # Canonical map: local workspace path → GitHub org repo → product slug
 # Last updated: 2026-06-26
 
-org: goldspire-global
-target_org: goldspireventures
-org_url: https://github.com/goldspire-global
+org: goldspireventures
+org_url: https://github.com/goldspireventures
 legal_entity: Goldspire Ventures Ltd
 jurisdiction: United Kingdom
 corporate_domain: goldspireventures.com
 
 repos:
   - github: corporate
-    url: https://github.com/goldspire-global/corporate
+    url: https://github.com/goldspireventures/corporate
     local_path: goldspire-corporate
     status: live
 
   - github: livia
-    url: https://github.com/goldspire-global/livia
+    url: https://github.com/goldspireventures/livia
     local_path: apps/Livia
     product_slug: livia
     status: live
     primary_domain: livia-hq.com
 
   - github: veil
-    url: https://github.com/goldspire-global/veil
+    url: https://github.com/goldspireventures/veil
     local_path: secure-text
     product_slug: veil
     status: live
     primary_domain: join-veil.goldspireventures.com
 
   - github: launch-stack
-    url: https://github.com/goldspire-global/launch-stack
+    url: https://github.com/goldspireventures/launch-stack
     local_path: goldspire-launch-stack
     product_slug: goldspire-studio
     division: Goldspire Studio
@@ -38,38 +37,38 @@ repos:
     primary_domain: goldspire.dev
 
   - github: triforge
-    url: https://github.com/goldspire-global/triforge
+    url: https://github.com/goldspireventures/triforge
     local_path: the3companies
     product_slug: triforge
     status: building
 
   - github: simi
-    url: https://github.com/goldspire-global/simi
+    url: https://github.com/goldspireventures/simi
     local_path: SIMI
     product_slug: simi
     status: building
 
   - github: valrolly-events
-    url: https://github.com/goldspire-global/valrolly-events
+    url: https://github.com/goldspireventures/valrolly-events
     local_path: Valrolly-Events
     product_slug: valrolly
     status: building
     notes: Target convergence into Livia events vertical
 
   - github: clearboarder
-    url: https://github.com/goldspire-global/clearboarder
+    url: https://github.com/goldspireventures/clearboarder
     local_path: ClearBoarder
     product_slug: clearboarder
     status: building
 
   - github: mulah
-    url: https://github.com/goldspire-global/mulah
+    url: https://github.com/goldspireventures/mulah
     local_path: null
     product_slug: mulah
     status: building
 
   - github: company
-    url: https://github.com/goldspire-global/company
+    url: https://github.com/goldspireventures/company
     local_path: docs
     notes: Brand hierarchy, repo registry, migration runbooks
 
@@ -80,16 +79,12 @@ repos:
     notes: Repo not created yet — local folder empty
 
 migration:
-  status: in_progress
+  status: complete
   completed:
-    - corporate pushed and deployed to goldspireventures.com
-    - launch-stack transferred to org
-    - clearboarder transferred to org
-    - triforge and valrolly-events created
-    - company meta repo created
-    - studio brand aligned to Ventures Ltd parent
+    - Org renamed to goldspireventures on GitHub
+    - Local remotes updated across portfolio repos
+    - corporate deployed to goldspireventures.com
   remaining:
-    - Rename org goldspire-global → goldspireventures (GitHub Settings → Organization profile → Rename)
-    - Push local SIMI changes to goldspire-global/simi
+    - Reconcile local SIMI with goldspireventures/simi (diverged histories)
+    - Remove apps/Livia/artifacts/goldspire-corporate (deprecated copy)
     - Create utub repo when code exists
-    - Remove apps/Livia/artifacts/goldspire-corporate after confirming deploy
