@@ -1,30 +1,36 @@
 # Goldspire Ventures — repository registry
 # Canonical map: local workspace path → GitHub org repo → product slug
-# GitHub org: https://github.com/goldspireventures
 # Last updated: 2026-06-26
 
-org: goldspireventures
+org: goldspire-global
+target_org: goldspireventures
+org_url: https://github.com/goldspire-global
 legal_entity: Goldspire Ventures Ltd
 jurisdiction: United Kingdom
 corporate_domain: goldspireventures.com
 
 repos:
   - github: corporate
+    url: https://github.com/goldspire-global/corporate
     local_path: goldspire-corporate
+    status: live
+
   - github: livia
+    url: https://github.com/goldspire-global/livia
     local_path: apps/Livia
     product_slug: livia
     status: live
     primary_domain: livia-hq.com
 
   - github: veil
+    url: https://github.com/goldspire-global/veil
     local_path: secure-text
     product_slug: veil
     status: live
     primary_domain: join-veil.goldspireventures.com
-    notes: Chrome extension + veil-api worker
 
   - github: launch-stack
+    url: https://github.com/goldspire-global/launch-stack
     local_path: goldspire-launch-stack
     product_slug: goldspire-studio
     division: Goldspire Studio
@@ -32,62 +38,58 @@ repos:
     primary_domain: goldspire.dev
 
   - github: triforge
+    url: https://github.com/goldspire-global/triforge
     local_path: the3companies
     product_slug: triforge
     status: building
-    notes: Groundline, Vouchline, Stillpath
 
   - github: simi
+    url: https://github.com/goldspire-global/simi
     local_path: SIMI
     product_slug: simi
     status: building
 
   - github: valrolly-events
+    url: https://github.com/goldspire-global/valrolly-events
     local_path: Valrolly-Events
     product_slug: valrolly
     status: building
     notes: Target convergence into Livia events vertical
 
   - github: clearboarder
+    url: https://github.com/goldspire-global/clearboarder
     local_path: ClearBoarder
     product_slug: clearboarder
     status: building
+
+  - github: mulah
+    url: https://github.com/goldspire-global/mulah
+    local_path: null
+    product_slug: mulah
+    status: building
+
+  - github: company
+    url: https://github.com/goldspire-global/company
+    local_path: docs
+    notes: Brand hierarchy, repo registry, migration runbooks
 
   - github: utub
     local_path: utub
     product_slug: utub
     status: building
-
-  # Portfolio companies without a dedicated repo yet
-  - github: mulah
-    local_path: null
-    product_slug: mulah
-    status: building
-
-  - github: trustbase
-    local_path: null
-    product_slug: trustbase
-    status: building
-
-  - github: move-ezflow
-    local_path: null
-    product_slug: move-ezflow
-    status: building
-
-  - github: japa
-    local_path: null
-    product_slug: japa
-    status: building
-
-  # Org meta / docs (optional future repo)
-  - github: company
-    local_path: docs
-    notes: BRAND-HIERARCHY.md, REPO-REGISTRY.yaml — may become standalone meta repo
+    notes: Repo not created yet — local folder empty
 
 migration:
-  status: planned
-  steps:
-    - Create github.com/goldspireventures org (if not exists)
-    - Push corporate, livia, veil, launch-stack first
-    - Rename remotes on local clones; update Cursor workspace paths
-    - Archive or delete nested Livia artifacts/goldspire-corporate after Vercel cutover
+  status: in_progress
+  completed:
+    - corporate pushed and deployed to goldspireventures.com
+    - launch-stack transferred to org
+    - clearboarder transferred to org
+    - triforge and valrolly-events created
+    - company meta repo created
+    - studio brand aligned to Ventures Ltd parent
+  remaining:
+    - Rename org goldspire-global → goldspireventures (GitHub Settings → Organization profile → Rename)
+    - Push local SIMI changes to goldspire-global/simi
+    - Create utub repo when code exists
+    - Remove apps/Livia/artifacts/goldspire-corporate after confirming deploy

@@ -60,9 +60,10 @@ Studio client contracts and footers should read: **Goldspire Studio, a division 
 
 ## GitHub organisation
 
-**Org:** [github.com/goldspireventures](https://github.com/goldspireventures)
+**Active org:** [github.com/goldspire-global](https://github.com/goldspire-global)  
+**Target org name:** `goldspireventures` (rename in GitHub org settings when available)
 
-All active repos migrate under this org. Local folder names may differ during transition — see `REPO-REGISTRY.yaml`.
+Legal entity and public brand remain **Goldspire Ventures Ltd** regardless of GitHub org slug.
 
 ---
 
